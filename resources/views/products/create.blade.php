@@ -1,10 +1,10 @@
-{{-- filepath: resources/views/Category/create.blade.php --}}
+{{-- filepath: resources/views/products/create.blade.php --}}
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Create Category') }}
+            {{ __('Create New Product') }}
         </h2>
-        <a href="{{ route('categories.index') }}" class="inline-block px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700">
+        <a href="{{ route('products.index') }}" class="inline-block px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700">
             {{ __('Back to List') }}
         </a>
     </x-slot>
@@ -22,7 +22,7 @@
                     </div>
                 @endif
 
-                <form action="{{ route('categories.store') }}" method="POST">
+                <form action="{{ route('products.store') }}" method="POST">
                     @csrf
                     <div class="mb-4">
                         <label class="block text-gray-700">{{ __('Name') }}</label>
@@ -30,9 +30,26 @@
                             class="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:border-blue-300">
                     </div>
                     <div class="mb-4">
+                        <label class="block text-gray-700">{{ __('Price') }}</label>
+                        <input type="number" name="price" value="{{ old('price') }}" step="0.01" required
+                            class="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:border-blue-300">
+                    </div>
+                    <div class="mb-4">
                         <label class="block text-gray-700">{{ __('Description') }}</label>
                         <textarea name="description" rows="3"
                             class="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:border-blue-300">{{ old('description') }}</textarea>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700">{{ __('Category') }}</label>
+                        <select name="category_id" required
+                            class="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:border-blue-300">
+                            <option value="">{{ __('Select a category') }}</option>
+                            @foreach($categories as $category)
+                                <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                                    {{ $category->name }}
+                                </option>
+                            @endforeach
+                        </select>
                     </div>
                     <div>
                         <button type="submit"
