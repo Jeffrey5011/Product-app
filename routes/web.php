@@ -20,11 +20,6 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::resource('products', ProductController::class);
-    Route::resource('categories', CategoryController::class);
-});
-
-Route::middleware('auth')->group(function () {
     Route::resource(('categories'), CategoryController::class);
     Route::resource('products', App\Http\Controllers\ProductController::class);
 });

@@ -273,5 +273,8 @@
 "No categories found.": "No hay categorías registradas.",
 "No products found.": "No hay productos registrados.",
 "Are you sure you want to delete this category?": "¿Seguro que deseas eliminar esta categoría?",
-"Are you sure you want to delete this product?": "¿Seguro que deseas eliminar este producto?"
+"Are you sure you want to delete this product?": "¿Seguro que deseas eliminar este producto?",
+"Product": "Producto",
+"Categories": "Categorías"
+
 }

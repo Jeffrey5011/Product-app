@@ -38,7 +38,7 @@ class ProductController extends Controller
         try {
             $validated = $request->validate([
                 'name' => 'required|string|max:255',
-                'price' => 'required|numeric',
+                'price' => 'required|numeric|min:0',
                 'description' => 'nullable|string',
                 'category_id' => 'required|exists:categories,id',
             ]);
@@ -80,7 +80,7 @@ class ProductController extends Controller
         try {
             $validated = $request->validate([
                 'name' => 'required|string|max:255',
-                'price' => 'required|numeric',
+                'price' => 'required|numeric|min:0',
                 'description' => 'nullable|string',
                 'category_id' => 'required|exists:categories,id',
             ]);

@@ -15,13 +15,13 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             <div class="p-6 bg-white border-b border-gray-200">
-                <form action="{{ route('categories.update', $category->id) }}" method="POST">
+                <form action="{{ route('categories.update', $categories->id) }}" method="POST">
                     @csrf
                     @method('PUT')
 
                     <div class="mb-4">
                         <label for="name" class="block text-gray-700 font-bold mb-2">{{ __('Name') }}</label>
-                        <input type="text" name="name" id="name" value="{{ old('name', $category->name) }}"
+                        <input type="text" name="name" id="name" value="{{ old('name', $categories->name) }}"
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                         @error('name')
                             <p class="text-red-500 text-xs italic">{{ $message }}</p>
@@ -31,7 +31,7 @@
                     <div class="mb-4">
                         <label for="description" class="block text-gray-700 font-bold mb-2">{{ __('Description') }}</label>
                         <textarea name="description" id="description" rows="4"
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">{{ old('description', $category->description) }}</textarea>
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">{{ old('description', $categories->description) }}</textarea>
                         @error('description')
                             <p class="text-red-500 text-xs italic">{{ $message }}</p>
                         @enderror
